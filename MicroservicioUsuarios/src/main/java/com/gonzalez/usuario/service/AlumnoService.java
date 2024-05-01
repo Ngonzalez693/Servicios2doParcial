@@ -1,14 +1,9 @@
 package com.gonzalez.usuario.service;
 
-import java.util.Optional;
-
+import com.gonzalez.commons.service.CommonService;
 import com.gonzalez.usuario.entity.Alumno;
 
-public interface AlumnoService {
-
-	public Iterable<Alumno> findAll();
-	
-	public Optional<Alumno> findById(Long Id);
+public interface AlumnoService extends CommonService<Alumno>{
 	
 	public Alumno save(Alumno alumno);
 	
