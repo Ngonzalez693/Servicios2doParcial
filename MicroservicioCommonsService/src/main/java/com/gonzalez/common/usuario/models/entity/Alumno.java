@@ -1,23 +1,16 @@
-package com.gonzalez.usuario.entity;
+package com.gonzalez.common.usuario.models.entity;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import jakarta.persistence.*;
 
 @Entity
 @Table
 public class Alumno {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long Id;
 	private String nombre;
 	private String apellido;
 	private String email;
@@ -25,11 +18,6 @@ public class Alumno {
 	@Column(name = "create_at")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createAt;
-
-	public String getNombre() {
-		return nombre;
-	}
-	
 	
 	@PrePersist
 	private void prePersiste() {
@@ -37,19 +25,23 @@ public class Alumno {
 	}
 	
 	public Alumno(Long id, String nombre, String apellido, String email, Date createAt) {
-		this.id = id;
+		this.Id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.createAt = createAt;
 	}
-	
-	public Alumno() {
-		
+
+	public Long getId() {
+		return Id;
 	}
-	
-	public String toString() {
-		return this.id + this.nombre + this.apellido + this.email + this.createAt;
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -72,4 +64,26 @@ public class Alumno {
 		this.email = email;
 	}
 
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+
+		if(this == obj) {
+			return true;
+		}
+		if(!(obj instanceof Alumno)) {
+			return false;
+		}
+		Alumno a = (Alumno) obj;
+		return this.Id !=null && this.Id.equals(a.getId());
+	}
+	
+	
 }

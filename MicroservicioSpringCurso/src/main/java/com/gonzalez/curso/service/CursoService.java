@@ -1,7 +1,7 @@
 package com.gonzalez.curso.service;
 
+import com.gonzalez.common.usuario.models.entity.Curso;
 import com.gonzalez.commons.service.CommonService;
-import com.gonzalez.curso.models.entity.Curso;
 
 public interface CursoService extends CommonService<Curso>{
 
