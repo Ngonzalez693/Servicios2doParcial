@@ -1,6 +1,6 @@
 # Servicios2doParcial
 
-Microservicios Usuario y Eureka. 
+Microservicios Usuario, Eureka, Getaway, Curso, Commons y CommonService. 
 
 ## Url
 
